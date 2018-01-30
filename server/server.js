@@ -5,10 +5,7 @@ let app = express();
 const bodyParser = require('body-parser');
 
 
-// app.get('/', (req, res) =>{
-// res.sendFile(path.join(__dirname, '../public/index.html'));
 
-// });
 
 
 
@@ -21,8 +18,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/contact-form', (req, res) => {
-   //let data = JSON.parse(fs.readFileSync('./server/log.json', 'utf8'));
-
+   
     fs.readFile('./server/log.json', 'utf8', (err, data) => {
         
         let myArray = JSON.parse(data);
@@ -41,8 +37,6 @@ app.post('/contact-form', (req, res) => {
 
     res.redirect('/formsubmissions');
 });
-
-
 
 app.use(express.static(path.join(__dirname, '../public')));
 
