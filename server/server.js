@@ -5,10 +5,6 @@ let app = express();
 const bodyParser = require('body-parser');
 
 
-
-
-
-
 app.use((req, res, next) => {
     fs.appendFileSync("./log.txt", req.originalUrl);
     next();
